@@ -1,11 +1,38 @@
 example.property: "I AM IN THE DEFAULT"
-spring.jpa.database: "POSTGRESQL"
-spring.datasource.platform:  "postgres"
-spring.jpa.show-sql: "true"
-spring.datasource.driver-class-name: "org.postgresql.Driver"
-spring.datasource.url: "jdbc:postgres://manny.db.elephantsql.com:5432/yumiazwy"
-spring.datasource.username: "yumiazwy"
-spring.datasource.password: "vUU2GGpQgIq4pfLbHwq9SyfKlAI-mCQD"
-spring.datasource.testWhileIdle: "true"
-spring.datasource.validationQuery: "SELECT 1"
-spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+#spring.jpa.database: "POSTGRESQL"
+#spring.datasource.platform:  "postgres"
+#spring.jpa.show-sql: "true"
+#spring.datasource.driver-class-name: "org.postgresql.Driver"
+#spring.datasource.url: "jdbc:postgres://manny.db.elephantsql.com:5432/yumiazwy"
+#spring.datasource.username: "yumiazwy"
+#spring.datasource.password: "vUU2GGpQgIq4pfLbHwq9SyfKlAI-mCQD"
+#spring.datasource.testWhileIdle: "true"
+#spring.datasource.validationQuery: "SELECT 1"
+#spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+
+### Database Settings
+spring:
+  datasource:
+    url: jdbc:h2:mem:example-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+
+### H2 Settings
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
