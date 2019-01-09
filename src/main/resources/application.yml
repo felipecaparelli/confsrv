@@ -1,25 +1,24 @@
+#server:
+#  port: 8888
+#spring:
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        encrypt.enabled: false
+#        native:
+#          searchLocations: classpath:config/,classpath:config/licensingservice/,classpath:config/organizationservice/
+        
 server:
   port: 8888
 spring:
-  profiles:
-    active: native
-cloud:
-  config:
-    server:
-      encrypt.enabled: false
-      native:
-        searchLocations: classpath:config/,classpath:config/licensingservice/
-        
-# server:
-#   port: 8888
-# spring:
-#   cloud:
-#     config:
-#       server:
-#         encrypt.enabled: false
-#         git:
-#           uri: https://github.com/felipecaparelli/config-repo/
-#           searchPaths: licensingservice
-#           username: native-cloud-apps
-#           password: 0ffended
-        
+  cloud:
+    config:
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/felipecaparelli/config-repo/
+          searchPaths: licensingservice,organizationservice
+          username: native-cloud-apps
+          password: 0ffended
